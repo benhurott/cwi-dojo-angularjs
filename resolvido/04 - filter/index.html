@@ -1,0 +1,29 @@
+<html ng-app="Pokedex">
+<head>
+</head>
+<body>
+    <!--    
+     <div ng-controller="ListCtrl">
+         <input type="text" ng-model="searchText">
+         
+         <ul>
+            <li ng-repeat="p in pokemons | filter:searchText">{{ p.name }}</li>
+        </ul>
+     </div>-->
+     <div ng-controller="ListCtrl">
+         <input type="text" ng-model="searchText.$">
+         <input type="text" ng-model="searchText.name">
+         <input type="text" ng-model="searchText.group">
+         
+         <ul>
+            <li ng-repeat="p in pokemons | filter:searchText">{{ p.name }} - {{ p.value | moneyView:"R$" }}</li>
+        </ul>
+        
+        {{ pokemons[0].value }}
+        
+     </div>
+     
+     <script src="angular.min.js"></script>
+     <script src="index.js"></script>
+</body>
+</html>

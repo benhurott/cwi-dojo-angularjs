@@ -1,0 +1,20 @@
+<html ng-app="Heroes">
+<head>
+    
+</head>
+<body>
+     
+     <div ng-controller="ListCtrl">
+         <table border="1">
+             <tr ng-repeat="h in heroes">
+                 <td>{{ h.id }}</td>
+                 <td>{{ h.name }}</td>
+                 <td>{{ h.by }}</td>
+             </tr>
+         </table>
+     </div>
+     
+     <script src="angular.min.js"></script>
+     <script src="index.js"></script>
+</body>
+</html>

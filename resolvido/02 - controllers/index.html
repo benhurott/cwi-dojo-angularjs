@@ -1,0 +1,47 @@
+<html ng-app="Pokedex">
+<head>
+</head>
+<body>
+     
+     <div ng-controller="HomeCtrl">
+         
+         <input type="text" ng-model="treinador.nome">
+         {{ treinador.nome }}
+         
+         <br />
+         <input type="button" value="Alerta!" 
+                ng-click="mostrarMensagem(treinador)">
+         
+     </div>   
+     <hr>
+     <div ng-controller="ListCtrl">
+         <ul>
+             <li ng-repeat="p in pokemons" ng-style="{ 'color': $even ? 'red' : 'blue'}">{{$index}} - {{p.nome}}</li>
+         </ul>
+         <!--$first, $middle, $last, $even, $odd -->
+         
+         <input type="button" value="Add" 
+                ng-click="addPokemon()">
+                
+         <br />
+         <select>
+             <option ng-repeat="p in pokemons" 
+                     ng-value="p.id">{{p.nome}}</option>
+                     
+         </select>
+         <br />
+         <select ng-model="selectedPokemon"
+                 ng-options="p.nome for p in pokemons track by p.id">
+             
+         </select>
+         <br />
+         <select ng-model="selectedPokemon"
+                 ng-options="p.nome group by p.stage for p in pokemons track by p.id"
+                 ng-change="onSelectPokemon()">
+         </select>
+     </div>
+     
+     <script src="angular.min.js"></script>
+     <script src="index.js"></script>
+</body>
+</html>
