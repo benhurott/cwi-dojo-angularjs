@@ -1,0 +1,39 @@
+<html ng-app="Herois">
+<head>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+     
+     <div ng-controller="CadastroCtrl">
+         <form>
+             <p>
+                 Nome: <br />
+                 <input type="text" ng-model="heroi.nome">
+             </p>
+             <p>
+                 Data Nascimento: <br />
+                 <input type="date" ng-model="heroi.dataNasc">
+             </p>
+             <p>
+                 Criado Por: <br />
+                 <label ng-repeat="c in opcoesCriadoPor">
+                     {{ c.desc }}
+                     <input type="radio" name="optCriadoPor"
+                            ng-model="heroi.criadoPor" 
+                            ng-value="c.val">
+                 </label>
+             </p>
+             <p>
+                 <input type="submit" value="Enviar">
+             </p>
+         </form>
+         
+         
+         <hr />
+         {{ heroi | json }}
+     </div>
+     
+     <script src="angular.min.js"></script>
+     <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html ng-app="Pokedex">
+<head>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <div ng-controller="FormCtrl">
+        <form novalidate name="frm">
+            <p>
+                Data Nascimento: <br />
+                <input type="date" name="dtNasc"
+                       ng-model="model.dataNascimento"
+                       idoso>
+            </p>
+            <p>
+                {{ frm.dtNasc.$error | json }}
+            </p>
+        </form>
+        
+        <calendar></calendar>
+        
+        
+        <div>
+            <tabelao lista="viloes" deletar="matarVilao"></tabelao>
+        </div>
+        
+    </div>
+
+    <script src="angular.min.js"></script>
+    <script src="index.js"></script>
+    
+    <script type="text/ng-template" id="tabelaoTpl">
+        <table border="1">
+            <tr ng-repeat="l in lista" ng-click="_deletar(l)">
+                <td>{{l.id}}</td>
+                <td>{{l.nome}}</td>
+            </tr>
+        </table>
+    </script>
+    
+</body>
+</html>

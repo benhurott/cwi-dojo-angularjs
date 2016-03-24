@@ -1,24 +1,24 @@
-angular.module('Heroes', [])
+angular.module('Herois', [])
 
-.controller('ListCtrl', function ($scope) {
+.controller('ListaCtrl', function ($scope) {
     
-    $scope.selectedHero = null;
+    $scope.heroiSelecionado = null;
     
-    $scope.heroes = [
+    $scope.herois = [
         {
             id: 1,
             nome: 'Batman',
-            by: 'DC'
+            criadora: 'DC'
         },
         {
             id: 2,
             nome: 'Superman',
-            by: 'DC'
+            criadora: 'DC'
         },
         {
             id: 3,
             nome: 'Hulk',
-            by: 'Marvel'
+            criadora: 'Marvel'
         }
     ];
     

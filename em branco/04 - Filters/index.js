@@ -1,21 +1,21 @@
-angular.module('Heroes', [])
+angular.module('Herois', [])
 
-.controller('ListCtrl', function ($scope) {
-    $scope.heroes = [
+.controller('ListaCtrl', function ($scope) {
+    $scope.herois = [
         {
             id: 1,
-            name: 'Batman',
-            by: 'DC'
+            nome: 'Batman',
+            criadora: 'DC'
         },
         {
             id: 2,
-            name: 'Superman',
-            by: 'DC'
+            nome: 'Superman',
+            criadora: 'DC'
         },
         {
             id: 3,
-            name: 'Hulk',
-            by: 'Marvel'
+            nome: 'Hulk',
+            criadora: 'Marvel'
         }
     ];
 });

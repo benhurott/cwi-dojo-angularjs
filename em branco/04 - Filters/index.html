@@ -1,15 +1,15 @@
-<html ng-app="Heroes">
+<html ng-app="Herois">
 <head>
     
 </head>
 <body>
      
-     <div ng-controller="ListCtrl">
+     <div ng-controller="ListaCtrl">
          <table border="1">
-             <tr ng-repeat="h in heroes">
+             <tr ng-repeat="h in herois">
                  <td>{{ h.id }}</td>
-                 <td>{{ h.name }}</td>
-                 <td>{{ h.by }}</td>
+                 <td>{{ h.nome }}</td>
+                 <td>{{ h.criadora }}</td>
              </tr>
          </table>
      </div>
