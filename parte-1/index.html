@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>DOJO AngularJS</title>
+
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+</head>
+
+<body ng-app="locadora">
+    <div class="container">
+
+        <div class="row" ng-controller="ListagemJogosCtrl">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <span>Total de Jogos Disponíveis: {{ jogos.length }}</span>
+
+                <div>
+                    <form action="">
+                        
+                    </form>
+                </div>
+
+                <div>
+                    <ul>
+                        <li ng-repeat="j in jogos track by j.id" 
+                            ng-click="selecionarJogo(j)"
+                            class="minha-classe-a"
+                            ng-class="{ 'jogo-selecionado': j.selecionado }">
+                            {{ j.id }} - {{ j.nome }}
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="libs/angular.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

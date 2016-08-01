@@ -1,0 +1,18 @@
+*-------------------------------------------------------------------*
+*						GUIA DOJO ANGULARJS							*
+*-------------------------------------------------------------------*
+- Explicar o que é AngularJS
+- Explicar que é um framework e não uma lib.
+- Configurar uma aplicação básica do zero (baixando os arquivos e tal).
+- Criar uma "app", explicando sobre sua modularidade.
+- Criar controller "ListagemJogosCtrl" com contagem de jogos.
+- Explicar injeção de dependência.
+- Criar lista de jogos com ng-repeat.
+- Criar função "selecionarJogo(indice)", explicando:
+	 - $first, $middle, $last, $even, $odd
+	 - $$hashkey, track by x.id
+	 - passando o objeto "jogo" como parâmetro
+- Aplicar classe CSS quando selecionar jogo com {{}} e ngClass.
+	- {{ j.selecionado ? 'jogo-selecionado' : ''; }}
+	- ng-class="{ 'jogo-selecionado': j.selecionado }"
+
