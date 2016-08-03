@@ -1,3 +1,7 @@
 .jogo-selecionado {
     color: red;
 }
+
+.campo-invalido {
+    border: 1px solid red;
+}

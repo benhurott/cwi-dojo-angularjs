@@ -1,18 +1,53 @@
-*-------------------------------------------------------------------*
+Ôªø*-------------------------------------------------------------------*
 *						GUIA DOJO ANGULARJS							*
 *-------------------------------------------------------------------*
-- Explicar o que È AngularJS
-- Explicar que È um framework e n„o uma lib.
-- Configurar uma aplicaÁ„o b·sica do zero (baixando os arquivos e tal).
-- Criar uma "app", explicando sobre sua modularidade.
-- Criar controller "ListagemJogosCtrl" com contagem de jogos.
-- Explicar injeÁ„o de dependÍncia.
-- Criar lista de jogos com ng-repeat.
-- Criar funÁ„o "selecionarJogo(indice)", explicando:
-	 - $first, $middle, $last, $even, $odd
-	 - $$hashkey, track by x.id
-	 - passando o objeto "jogo" como par‚metro
-- Aplicar classe CSS quando selecionar jogo com {{}} e ngClass.
-	- {{ j.selecionado ? 'jogo-selecionado' : ''; }}
-	- ng-class="{ 'jogo-selecionado': j.selecionado }"
+> Explicar o que √© AngularJS
+> Explicar que √© um framework e n√£o uma lib.
+> Configurar uma aplica√ß√£o b√°sica do zero (baixando os arquivos e tal).
+> Criar uma "app", explicando sobre sua modularidade.
+> Criar controller "ListagemJogosCtrl" com contagem de jogos.
+> Explicar inje√ß√£o de depend√™ncia.
+> Criar lista de jogos com ng-repeat.
+
+> Criar fun√ß√£o "selecionarJogo(indice)", explicando:
+	 > $first, $middle, $last, $even, $odd
+	 > $$hashkey, track by x.id
+	 > passando o objeto "jogo" como par√¢metro
+	 
+> Aplicar classe CSS quando selecionar jogo com {{}} e ngClass.
+	> {{ j.selecionado ? 'jogo-selecionado' : ''; }}
+	> ng-class="{ 'jogo-selecionado': j.selecionado }"
+	
+> Criar frmJogo para criar um jogo novo.
+	> ngModel (com erro)
+	> ngOptions
+		> c as c.nome for c in categorias track by c.id
+	> ng-disabled com frmJogo.$invalid
+		> ng-valid: the model is valid
+		> ng-invalid: the model is invalid
+		> ng-valid-[key]: for each valid key added by $setValidity
+		> ng-invalid-[key]: for each invalid key added by $setValidity
+		> ng-pristine: the control hasn't been interacted with yet
+		> ng-dirty: the control has been interacted with
+		> ng-touched: the control has been blurred
+		> ng-untouched: the control hasn't been blurred
+		> ng-pending: any $asyncValidators are unfulfilled
+	> mostrar mensagem de erro para campo.
+		> frmJogo.nome.$dirty && frmJogo.nome.$error.required
+	> mostrar "esc" para voltra nome
+		> ng-keyup="resetarNome($event)"
+		> 	if($event.keyCode === 27) {
+				$scope.frmJogo.nome.$rollbackViewValue();
+			}
+		> ng-model-options="{ updateOn: 'blur' }"
+	> mostrar ng-invalid-key com nome de jogo inv√°lido
+		> <div ng-show="frmJogo.nome.$error.jogoruim">
+		> 	$scope.verificarNome = function() {
+				var valid = $scope.jogoEmEdicao.nome !== 'batman'; 
+				$scope.frmJogo.nome.$setValidity('jogomuitoruim', valid);
+			}
+	> mostrar reset de form
+		> $scope.jogoEmEdicao = angular.copy(novoJogoParaEdicao);
+		> $scope.frmJogo.$setPristine();
+	> Vamos ver valida√ß√µes customizadas de form em "Diretivas"
 

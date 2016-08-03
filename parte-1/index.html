@@ -17,20 +17,50 @@
 
         <div class="row" ng-controller="ListagemJogosCtrl">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <span>Total de Jogos Disponíveis: {{ jogos.length }}</span>
+                
 
-                <div>
-                    <form action="">
-                        
-                    </form>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <h2>Criar Jogo</h2>
+                        <form name="frmJogo" class="form" ng-submit="salvarJogo()">
+                            <div class="form-group">
+                                <input type="text" name="nome" id="nome" placeholder="Nome" 
+                                        class="form-control"
+                                        ng-class="{'campo-invalido': frmJogo.nome.$dirty && frmJogo.nome.$invalid }"
+                                        ng-model="jogoEmEdicao.nome"
+                                        ng-model-options="{ updateOn: 'blur' }"
+                                        ng-required="true"
+                                        ng-maxlength="100"
+                                        ng-minlength="3"
+                                        ng-keyup="resetarNome($event)"
+                                        ng-change="verificarNome()">
+                                <div ng-show="frmJogo.nome.$dirty && frmJogo.nome.$error.required">
+                                    Este campo é obrigatório.
+                                </div>
+                                <div ng-show="frmJogo.nome.$error.jogomuitoruim">
+                                    Este jogo é muito ruim...
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <select name="categoria" id="categoria" class="form-control" 
+                                        ng-model="jogoEmEdicao.categoria" 
+                                        ng-required="true"
+                                        ng-options="c as c.nome for c in categorias track by c.id">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input class="btn btn-primary" type="submit" value="Salvar"
+                                        ng-disabled="frmJogo.$invalid">
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
                 <div>
+                    <h2>Listagem de Jogos</h2>
+                    <span>Total de Jogos Disponíveis: {{ jogos.length }}</span>
                     <ul>
-                        <li ng-repeat="j in jogos track by j.id" 
-                            ng-click="selecionarJogo(j)"
-                            class="minha-classe-a"
-                            ng-class="{ 'jogo-selecionado': j.selecionado }">
+                        <li ng-repeat="j in jogos track by j.id" ng-click="selecionarJogo(j)" class="minha-classe-a" ng-class="{ 'jogo-selecionado': j.selecionado }">
                             {{ j.id }} - {{ j.nome }}
                         </li>
                     </ul>
